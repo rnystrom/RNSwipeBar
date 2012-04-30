@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC0653F4153A1AA000770477"
+               BlueprintIdentifier = "ECAC94F3154F0C290067B16B"
                BuildableName = "RNSwipeBar.app"
                BlueprintName = "RNSwipeBar"
                ReferencedContainer = "container:RNSwipeBar.xcodeproj">
@@ -31,7 +31,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC0653F4153A1AA000770477"
+            BlueprintIdentifier = "ECAC94F3154F0C290067B16B"
             BuildableName = "RNSwipeBar.app"
             BlueprintName = "RNSwipeBar"
             ReferencedContainer = "container:RNSwipeBar.xcodeproj">
@@ -50,7 +50,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC0653F4153A1AA000770477"
+            BlueprintIdentifier = "ECAC94F3154F0C290067B16B"
             BuildableName = "RNSwipeBar.app"
             BlueprintName = "RNSwipeBar"
             ReferencedContainer = "container:RNSwipeBar.xcodeproj">
@@ -68,7 +68,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC0653F4153A1AA000770477"
+            BlueprintIdentifier = "ECAC94F3154F0C290067B16B"
             BuildableName = "RNSwipeBar.app"
             BlueprintName = "RNSwipeBar"
             ReferencedContainer = "container:RNSwipeBar.xcodeproj">

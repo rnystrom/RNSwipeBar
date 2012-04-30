@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'RNNotificationBar' target in the 'RNNotificationBar' project
+// Prefix header for all source files of the 'RNSwipeBar' target in the 'RNSwipeBar' project
 //
 
 #import <Availability.h>

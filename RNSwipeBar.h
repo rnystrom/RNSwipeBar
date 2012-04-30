@@ -1,6 +1,6 @@
 //
-//  RNNotificationBar.h
-//  RNNotificationBar
+//  RNSwipeBar.h
+//  RNSwipeBar
 //
 //  Created by Ryan Nystrom on 4/14/12.
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.

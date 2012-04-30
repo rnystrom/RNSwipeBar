@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>RNNotificationBar.xcscheme</key>
+		<key>RNSwipeBar.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>EC0653F4153A1AA000770477</key>
+		<key>ECAC94F3154F0C290067B16B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
