@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  RNNotificationBar
+//  RNswipeBar
 //
 //  Created by Ryan Nystrom on 4/14/12.
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
@@ -14,7 +14,7 @@
 
 @implementation ViewController
 
-@synthesize notificationBar = _notificationBar;
+@synthesize swipeBar = _swipeBar;
 
 - (void)viewDidLoad
 {
@@ -22,8 +22,8 @@
     
     RNSwipeBar *swipeBar = [[RNSwipeBar alloc] initWithMainView:[self view]];
     [swipeBar setPadding:20.0f];
-    [self setNotificationBar:swipeBar];
-    [[self view] addSubview:[self notificationBar]];
+    [self setSwipeBar:swipeBar];
+    [[self view] addSubview:[self swipeBar]];
     
     RNBarView *barView = [[[NSBundle mainBundle] loadNibNamed:@"RNBarView" owner:self options:nil] lastObject];
     [barView setDelegate:self];
@@ -44,7 +44,7 @@
 
 - (void)mainButtonWasPressed:(id)sender
 {
-    [self.notificationBar toggle];
+    [self.swipeBar toggle];
 }
 
 @end

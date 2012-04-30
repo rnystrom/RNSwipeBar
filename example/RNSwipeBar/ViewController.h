@@ -1,6 +1,6 @@
 //
 //  ViewController.h
-//  RNNotificationBar
+//  RNswipeBar
 //
 //  Created by Ryan Nystrom on 4/14/12.
 //  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
@@ -13,6 +13,6 @@
 @interface ViewController : UIViewController
 <RNBarViewDelegate>
 
-@property (strong) RNSwipeBar *notificationBar;
+@property (strong) RNSwipeBar *swipeBar;
 
 @end
