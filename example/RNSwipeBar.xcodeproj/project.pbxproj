@@ -12,6 +12,7 @@
 		EC234CF6154F0F3000E019B1 /* RNBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC234CED154F0D0300E019B1 /* RNBarView.xib */; };
 		EC234CF7154F0F3B00E019B1 /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EC234CE9154F0D0300E019B1 /* button_bg.png */; };
 		EC234CF8154F0F3B00E019B1 /* button_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC234CEA154F0D0300E019B1 /* button_bg@2x.png */; };
+		EC4879261599029500986BFD /* activities.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC4879251599029500986BFD /* activities.jpg */; };
 		ECAC94F9154F0C290067B16B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAC94F8154F0C290067B16B /* UIKit.framework */; };
 		ECAC94FB154F0C290067B16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAC94FA154F0C290067B16B /* Foundation.framework */; };
 		ECAC94FD154F0C2A0067B16B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAC94FC154F0C290067B16B /* CoreGraphics.framework */; };
@@ -30,6 +31,7 @@
 		EC234CED154F0D0300E019B1 /* RNBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RNBarView.xib; sourceTree = "<group>"; };
 		EC234CF2154F0E8900E019B1 /* RNSwipeBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSwipeBar.h; sourceTree = "<group>"; };
 		EC234CF3154F0E8900E019B1 /* RNSwipeBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSwipeBar.m; sourceTree = "<group>"; };
+		EC4879251599029500986BFD /* activities.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = activities.jpg; sourceTree = "<group>"; };
 		ECAC94F4154F0C290067B16B /* RNSwipeBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNSwipeBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECAC94F8154F0C290067B16B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ECAC94FA154F0C290067B16B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +64,7 @@
 		EC234CF0154F0D3400E019B1 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				EC4879251599029500986BFD /* activities.jpg */,
 				EC234CE9154F0D0300E019B1 /* button_bg.png */,
 				EC234CEA154F0D0300E019B1 /* button_bg@2x.png */,
 			);
@@ -183,6 +186,7 @@
 				EC234CF6154F0F3000E019B1 /* RNBarView.xib in Resources */,
 				ECAC9503154F0C2A0067B16B /* InfoPlist.strings in Resources */,
 				ECAC950F154F0C2A0067B16B /* ViewController.xib in Resources */,
+				EC4879261599029500986BFD /* activities.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
