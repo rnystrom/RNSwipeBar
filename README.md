@@ -17,11 +17,11 @@ Simply initialize the RNSwipeBar, set up your properties, and add it to your vie
 
 I did include some convenience methods to handle toggling of the bar without the swipe gestures.
 
-    - (void)show:(BOOL)shouldShow;
-    - (void)hide:(BOOL)shouldHide;
+    - (void)show:(*BOOL*)shouldShow;
+    - (void)hide:(*BOOL*)shouldHide;
     - (void)toggle;
 
-Bear in mind that <code>show:</code> and hide: are exactly the same method, just opposite effects. The idea is to allow you some flexibility in fitting your semantics. For me, toggle is the most frequently used.
+Bear in mind that <code>show:</code> and <code>hide:</code> are exactly the same method, just opposite effects. The idea is to allow you some flexibility in fitting your semantics. For me, <code>toggle</code> is the most frequently used.
 
 ### Customizing
 
