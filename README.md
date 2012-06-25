@@ -3,8 +3,14 @@ RNSwipeBar
 
 RNSwipeBar is a lightweight iOS widget, optimized for iPhone/iPod Touch projects, that takes back roughly 44px of UI space. The bar works rather simply: create a UIView that contains all of your necessary objects and images for the bar. This is usually created completely custom. I left out any bar building parts because I want to leave it open ended how this is used. If you are interested in *how* to create a custom bar for this widget, please take a look at the included example.
 
+#### Images
+
 <img src="http://github.com/rnystrom/RNSwipeBar/raw/master/images/open.png" width="200" style="box-shadow: 2px 2px 5px #000: margin: 0 15px;" />
 <img src="http://github.com/rnystrom/RNSwipeBar/raw/master/images/closed.png" width="200" style="box-shadow: 2px 2px 5px #000: margin: 0 15px;" />
+
+#### Video
+
+[Watch on YouTube](http://www.youtube.com/watch?v=pqEZgcvQUlM)
 
 ### Installation
 
