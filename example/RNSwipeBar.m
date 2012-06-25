@@ -57,13 +57,13 @@
 
 - (id)initWithMainView:(UIView*)view barView:(UIView*)barView
 {
-//    if (self = [self initWithMainView:view]) {
+    if (self = [self initWithMainView:view]) {
         _height = barView.frame.size.height;
         _barView = barView;
         [self addSubview:_barView];
-//    }
-    return self;
-//    return [self initWithMainView:view];
+    }
+//    return self;
+    return [self initWithMainView:view];
 }
 
 #pragma mark - Display methods
@@ -164,9 +164,9 @@
     [self setFrame:newFrame];
 }
 
-- (BOOL)isHidden
-{
-    return _isHidden;
-}
+//- (BOOL)isHidden
+//{
+//    return _isHidden;
+//}
 
 @end

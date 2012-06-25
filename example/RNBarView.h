@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol RNBarViewDelegate;
+@protocol RNBarViewDelegate
+
+@required
+
+- (void)mainButtonWasPressed:(id)sender;
+
+@end
 
 @interface RNBarView : UIView
 
@@ -22,10 +28,3 @@
 
 @end
 
-@protocol RNBarViewDelegate
-
-@required
-
-- (void)mainButtonWasPressed:(id)sender;
-
-@end

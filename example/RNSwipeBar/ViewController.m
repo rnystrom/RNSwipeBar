@@ -22,6 +22,7 @@
     
     RNSwipeBar *swipeBar = [[RNSwipeBar alloc] initWithMainView:[self view]];
     [swipeBar setPadding:20.0f];
+    [swipeBar setDelegate:self];
     [self setSwipeBar:swipeBar];
     [[self view] addSubview:[self swipeBar]];
     

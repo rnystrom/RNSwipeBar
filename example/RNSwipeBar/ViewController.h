@@ -11,7 +11,7 @@
 #import "RNBarView.h"
 
 @interface ViewController : UIViewController
-<RNBarViewDelegate>
+<RNBarViewDelegate, RNSwipeBarDelegate>
 
 @property (strong) RNSwipeBar *swipeBar;
 
