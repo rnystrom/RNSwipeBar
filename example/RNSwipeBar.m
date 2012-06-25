@@ -1,17 +1,20 @@
-//
-//  RNSwipeBar.m
-//  RNSwipeBar
-//
 //  Created by Ryan Nystrom on 4/14/12.
-//  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
 //
+//  Copyright (C) 2012 Ryan Nystrom
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "RNSwipeBar.h"
 
 @interface RNSwipeBar ()
 
-- (void)mainViewWasSwiped:(UIPanGestureRecognizer*)recognizer;
+//  Gesture handler for swiping
 - (void)barViewWasSwiped:(UIPanGestureRecognizer*)recognizer;
+//  Finishes animating the bar if not completely swiped up/down
 - (void)completeAnimation:(BOOL)show;
 
 @end
@@ -20,7 +23,9 @@
 
 @synthesize parentView = _parentView;
 @synthesize delegate = _delegate;
-@synthesize view = _view;
+@synthesize barView = _barView;
+
+#pragma mark - Init
 
 - (id)init
 {
@@ -32,7 +37,6 @@
         _animationDuration = 0.1f;
         [self setBackgroundColor:[UIColor clearColor]];
         [self setOpaque:NO];
-        [self setDismissType:RNSwipeBarDismissTap];
     }
     return self;
 }
@@ -42,8 +46,6 @@
     if (self = [self init]) {
         [self setParentView:view];
         
-        UIPanGestureRecognizer *swipeUp = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mainViewWasSwiped:)];
-        [_parentView addGestureRecognizer:swipeUp];
         UIPanGestureRecognizer *swipeDown = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(barViewWasSwiped:)];
         [self addGestureRecognizer:swipeDown];        
         
@@ -56,11 +58,15 @@
 
 - (id)initWithMainView:(UIView*)view barView:(UIView*)barView
 {
-    _height = barView.frame.size.height;
-    _view = barView;
-    [self addSubview:_view];
-    return [self initWithMainView:view];
+    if (self = [self initWithMainView:view]) {
+        _height = barView.frame.size.height;
+        _barView = barView;
+        [self addSubview:_barView];
+    }
+    return self;
 }
+
+#pragma mark - Display methods
 
 - (void)show:(BOOL)shouldShow
 {
@@ -77,35 +83,18 @@
     [self completeAnimation:_isHidden];
 }
 
-- (void)mainViewWasSwiped:(UIPanGestureRecognizer *)recognizer
-{
-    CGPoint swipeLocation = [recognizer locationInView:_parentView];
-    if (recognizer.state == UIGestureRecognizerStateBegan && _isHidden) {
-        float mainViewThreshhold = kActiveSwipeModifier * self.parentView.frame.size.height;
-        if (swipeLocation.y > mainViewThreshhold) {
-            _canMove = YES;
-            return;
-        }
-    }
-    else if (recognizer.state == UIGestureRecognizerStateChanged && _canMove) {
-        float maxYPosition = self.parentView.frame.size.height - self.frame.size.height;
-        if (swipeLocation.y > maxYPosition) {
-            CGRect frame = CGRectMake(self.frame.origin.x, swipeLocation.y, self.frame.size.width, self.frame.size.height);
-            [self setFrame:frame];
-        }
-    }
-    else if (recognizer.state == UIGestureRecognizerStateEnded && _canMove) {
-        float pivotYPosition = self.parentView.frame.size.height - self.frame.size.height / 2;
-        _canMove = NO;
-        [self completeAnimation:(self.frame.origin.y < pivotYPosition)];
-    }
-}
+#pragma mark - UIGestureRecognizer handlers
 
 - (void)barViewWasSwiped:(UIPanGestureRecognizer*)recognizer
 {
     CGPoint swipeLocation = [recognizer locationInView:_parentView];
-    if (recognizer.state == UIGestureRecognizerStateBegan && ! _isHidden) {
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
         _canMove = YES;
+        if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(swipebarWasSwiped:)]) {
+                [self.delegate swipebarWasSwiped:self];
+            }
+        }
         return;
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged && _canMove) {
@@ -123,6 +112,8 @@
         return;
     }
 }
+
+#pragma mark - Private methods
 
 - (void)completeAnimation:(BOOL)show
 {
@@ -137,44 +128,31 @@
     }
     [UIView animateWithDuration:_animationDuration animations:^{
         [self setFrame:goToFrame];
+    } completion:^(BOOL finished){
+        if (finished && self.delegate) {
+            if (show && [self.delegate respondsToSelector:@selector(swipeBarDidAppear:)]) {
+                [self.delegate swipeBarDidAppear:self];
+            }
+            else if (!show && [self.delegate respondsToSelector:@selector(swipeBarDidDisappear:)]) {
+                [self.delegate swipeBarDidDisappear:self];
+            }
+        }
     }];
 }
 
-- (void)setDismissType:(RNSwipeBarDismissType)dismissType
-{
-    _dismissType = dismissType;
-    if (_parentView && dismissType) {
-        switch (dismissType) {
-            case RNSwipeBarDismissTap:
-                break;
-            case RNSwipeBarDismissSwipe:
-                break;
-        }
-    }
-}
+#pragma mark - Getters/Setters
 
-- (void)setParentView:(UIView *)parentView
+- (void)setBarView:(UIView *)view
 {
-    _parentView = parentView;
-    if (_dismissType) {
-        [self setDismissType:_dismissType];
-    }
-    else {
-        [self setDismissType:RNSwipeBarDismissTap];
-    }
-}
-
-- (void)setView:(UIView *)view
-{
-    _view = view;
+    _barView = view;
     
     for (UIView *subview in self.subviews) {
         [subview removeFromSuperview];
     }
     
-    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, _view.frame.size.width, _view.frame.size.height)];
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, _barView.frame.size.width, _barView.frame.size.height)];
     
-    [self addSubview:_view];
+    [self addSubview:_barView];
 }
 
 - (void)setPadding:(float)padding
@@ -184,6 +162,11 @@
     float yOrigin = self.parentView.frame.size.height - padding;
     CGRect newFrame = CGRectMake(oldFrame.origin.x, yOrigin, oldFrame.size.width, oldFrame.size.height);
     [self setFrame:newFrame];
+}
+
+- (BOOL)isHidden
+{
+    return _isHidden;
 }
 
 @end

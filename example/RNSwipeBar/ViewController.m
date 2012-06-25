@@ -27,7 +27,7 @@
     
     RNBarView *barView = [[[NSBundle mainBundle] loadNibNamed:@"RNBarView" owner:self options:nil] lastObject];
     [barView setDelegate:self];
-    [swipeBar setView:barView];
+    [swipeBar setBarView:barView];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -45,6 +45,21 @@
 - (void)mainButtonWasPressed:(id)sender
 {
     [self.swipeBar toggle];
+}
+
+- (void)swipeBarDidAppear:(id)sender
+{
+    NSLog(@"bar did appear");
+}
+
+- (void)swipeBarDidDisappear:(id)sender
+{
+    NSLog(@"bar did disappear");
+}
+
+- (void)swipebarWasSwiped:(id)sender
+{
+    NSLog(@"bar was swiped");
 }
 
 @end
