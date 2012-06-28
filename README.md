@@ -14,7 +14,7 @@ RNSwipeBar is a lightweight iOS widget, optimized for iPhone/iPod Touch projects
 
 ### Installation
 
-Simple. Drag and drop RNSwipeBar.h and RNSwipeBar.m into your project. RNSwipeBar is designed to be used with ARC, iOS 5+ projects **only**. If you really, really need this project in non-ARC I wouldn't mind revising it (but you should really be targetting iOS 5+ anyways).
+Simple. Drag and drop RNSwipeBar.h and RNSwipeBar.m into your project. RNSwipeBar is designed to be used with ARC, iOS 4.3+ projects **only**. If you really, really need this project in non-ARC I wouldn't mind revising it (but you should really be targetting iOS 5+ anyways).
 
 ### Usage
 

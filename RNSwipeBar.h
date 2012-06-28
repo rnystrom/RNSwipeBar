@@ -46,7 +46,4 @@
 - (void)hide:(BOOL)shouldHide;
 - (void)toggle;
 
-// Utility methods
-//- (BOOL)isHidden;
-
 @end

@@ -1,11 +1,3 @@
-//
-//  RNSwipeBar.m
-//  RNSwipeBar
-//
-//  Created by Ryan Nystrom on 4/14/12.
-//  Copyright (c) 2012 Ryan Nystrom. All rights reserved.
-//
-
 #import "RNSwipeBar.h"
 
 @interface RNSwipeBar ()
@@ -22,7 +14,6 @@
 @synthesize parentView = _parentView;
 @synthesize delegate = _delegate;
 @synthesize barView = _barView;
-//@synthesize isHidden;
 
 #pragma mark - Init
 
@@ -62,7 +53,6 @@
         _barView = barView;
         [self addSubview:_barView];
     }
-//    return self;
     return [self initWithMainView:view];
 }
 
@@ -163,10 +153,5 @@
     CGRect newFrame = CGRectMake(oldFrame.origin.x, yOrigin, oldFrame.size.width, oldFrame.size.height);
     [self setFrame:newFrame];
 }
-
-//- (BOOL)isHidden
-//{
-//    return _isHidden;
-//}
 
 @end
